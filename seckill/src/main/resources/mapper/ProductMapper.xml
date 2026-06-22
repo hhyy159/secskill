@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.seckill.dao.ProductDao">
+
+    <!-- 2026.6.10 余浩洋 查询所有商品 -->
+    <select id="findAll" resultType="com.example.seckill.entity.Product">
+        select * from product order by start_time asc
+    </select>
+
+    <!-- 2026.6.10 余浩洋 根据ID查询商品 -->
+    <select id="findById" resultType="com.example.seckill.entity.Product">
+        select * from product where product_id = #{product_id}
+    </select>
+
+    <!-- 2026.6.10 余浩洋 更新库存（实际扣减） -->
+    <update id="updateStock">
+        update product set stock = #{stock} where product_id = #{product_id}
+    </update>
+
+    <!-- 2026.6.10 余浩洋 原子扣减库存，stock>0才执行，防止超卖 -->
+    <update id="decrementStock">
+        update product set stock = stock - 1
+        where product_id = #{product_id} and stock > 0
+    </update>
+
+</mapper>

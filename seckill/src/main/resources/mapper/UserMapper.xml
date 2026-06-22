@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.seckill.dao.Userdao">
+    <!-- 2026.5.28 余浩洋 首次创建于2026.5.28 注册功能-->
+    <insert id="AddUser">
+        insert into user(account,password) values (#{account},#{password})
+    </insert>
+    <!-- 2026.5.30 余浩洋 首次创建于2026.5.30 登录功能-->
+    <select id="findByAccount" resultType="com.example.seckill.entity.User">
+        select * from user where account=#{account}
+    </select>
+    <select id="findByAccountAndPassword" resultType="com.example.seckill.entity.User">
+        select * from user where account=#{account} and password=#{password}
+    </select>
+</mapper>

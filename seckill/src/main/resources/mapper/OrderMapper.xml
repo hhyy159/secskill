@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.seckill.dao.OrderDao">
+
+    <!-- 2026.6.21 余浩洋 插入订单，order是MySQL关键字需用反引号 -->
+    <insert id="InsertOrder">
+        insert into `order` (user_id, product_id) values (#{user_id}, #{product_id})
+    </insert>
+
+    <!-- 2026.6.21 余浩洋 幂等性检查：根据用户和商品查询订单 -->
+    <select id="findByUserIdAndProductId" resultType="com.example.seckill.entity.Order">
+        select * from `order` where user_id = #{user_id} and product_id = #{product_id}
+    </select>
+
+    <!-- 2026.6.22 余浩洋 根据用户ID查询所有订单，LEFT JOIN商品表获取名称 -->
+    <select id="findByUserId" resultType="com.example.seckill.entity.Order">
+        select o.order_id, o.user_id, o.product_id, p.product_name
+        from `order` o left join product p on o.product_id = p.product_id
+        where o.user_id = #{user_id}
+        order by o.order_id desc
+    </select>
+
+</mapper>
