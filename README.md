@@ -10,19 +10,19 @@
 
 ## 技术栈
 
-| 层级 | 技术 | 版本 |
-|------|------|------|
-| **后端框架** | Spring Boot | 4.0.6 |
-| **持久层** | MyBatis (XML 映射) | 4.0.1 |
-| **数据库** | MySQL | 8.0 |
-| **缓存** | Redis (Lettuce) | — |
-| **消息队列** | RocketMQ | 2.3.0 (starter) |
-| **鉴权** | JWT (java-jwt) | 4.4.0 |
-| **AOP** | AspectJ | 1.9.22 |
-| **前端框架** | Vue 3 (Composition API) | 3.4+ |
-| **前端路由** | Vue Router | 4.3+ |
-| **HTTP 客户端** | Axios | 1.7+ |
-| **构建工具** | Vite / Maven | 5.4+ |
+| 层级 | 技术 |
+|------|------|
+| **后端框架** | Spring Boot |
+| **持久层** | MyBatis (XML 映射) |
+| **数据库** | MySQL |
+| **缓存** | Redis (Lettuce) |
+| **消息队列** | RocketMQ |
+| **鉴权** | JWT (java-jwt) |
+| **AOP** | AspectJ | 
+| **前端框架** | Vue 3 (Composition API) | 
+| **前端路由** | Vue Router |
+| **HTTP 客户端** | Axios | 
+| **构建工具** | Vite / Maven |
 | **语言** | Java 17 / JavaScript | — |
 
 ## 秒杀核心链路
